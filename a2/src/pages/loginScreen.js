@@ -1,10 +1,10 @@
 import React, { useState, useContext } from 'react';
-import { NavigationContainer } from '@react-navigation/native';
 import { AuthenticationAnswer } from '../utils/authentication';
 import { Button } from "react-native-elements";
-import { View } from "react-native";
-import {styles} from '../styles/styles';
-import {colours} from '../styles/settings';
+import { View, Text, TextInput, Image } from "react-native";
+import { styles } from '../styles/styles';
+import { AppLoginStack } from '../navigation/LoginNavigation';
+
 
 export const LoginScreen = ({navigation}) => {
     const [email, setEmail] = useState('');
@@ -12,9 +12,25 @@ export const LoginScreen = ({navigation}) => {
     const { onLogin, isLoading, error } = useContext(AuthenticationAnswer);
 
     return (
-        <View style={styles.container}>
 
-            <View style={styles.buttonStyle}>
+        <View style={styles.container}>
+            {/*<Text style={styles.instructionText}>Enter email:</Text>*/}
+            <View style={styles.box}>
+                <Image
+                    style={styles.logo}
+                    source={require('../assets/images/logo2.jpg')}
+                />
+                <TextInput
+                    style={styles.textBox}
+                    placeholder='Email'
+                    onChangeText={(val) => setEmail(val)}
+                />
+                {/*<Text style={styles.instructionText}> Enter password:</Text>*/}
+                <TextInput
+                    style={styles.textBox}
+                    placeholder='Password'
+                    onChangeText={(val) => setEmail(val)}
+                />
                 <Button
                     titleStyle={styles.buttonTitleStyle}
                     buttonStyle={styles.buttonStyle}
@@ -24,7 +40,17 @@ export const LoginScreen = ({navigation}) => {
                         }
                     }
                 />
+                <Button
+                    titleStyle={styles.buttonTitleStyle}
+                    buttonStyle={styles.buttonStyle}
+                    title="Register"
+                    onPress={() => {
+                        navigation.navigate('Registration')
+                    }
+                    }
+                />
             </View>
         </View>
+
     );
 };

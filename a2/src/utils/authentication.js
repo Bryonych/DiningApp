@@ -29,9 +29,9 @@ export const AuthenticationProvider = ({ children }) => {
         });
     };
 
-    const onRegister = (email, password, reenterPassword) => {
+    const onRegister = (email, password, reconfirmPassword) => {
         setIsLoading(true);
-        if (password !== reenterPassword) {
+        if (password !== reconfirmPassword) {
             setError('Re-entered password does not match original');
             return;
         }
