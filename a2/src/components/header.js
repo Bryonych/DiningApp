@@ -6,7 +6,7 @@ import { styles } from '../styles/styles';
 
 export function HeaderTitle() {
     return (
-        <ImageBackground source={require('../assets/images/headerBackground2.jpg')} style={styles.headerImage}>
+        <ImageBackground source={require('../assets/images/headerBackground3.jpg')} style={styles.headerImage}>
              <View style={styles.header}>
                  <Text style={styles.headerText}>Easy Order</Text>
              </View>

@@ -47,6 +47,7 @@ export const styles = StyleSheet.create({
         flexDirection: 'row',
         backgroundColor: '#FFFFFF',
         borderWidth: 1,
+        borderRadius: 15,
         borderColor: colours.darkGreen,
         padding: 15,
         margin: 10,
@@ -82,6 +83,7 @@ export const styles = StyleSheet.create({
     },
     error: {
         fontSize: 20,
+        color: '#FF0000',
     },
 });
 

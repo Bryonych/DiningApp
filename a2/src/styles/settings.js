@@ -1,4 +1,4 @@
-
+import Icon from 'react-native-vector-icons/AntDesign';
 
 export const colours = {
     lightGreen: '#B8D8D8',
@@ -7,6 +7,8 @@ export const colours = {
     light: '#EEF5DB',
     apricot: '#FE5F55',
 };
+
+
 
 
 

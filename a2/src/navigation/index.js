@@ -1,16 +1,30 @@
 
-import React, { useContext } from 'react';
+import React, { useState, useContext, useEffect } from 'react';
 import { NavigationContainer } from '@react-navigation/native';
 import { AppStack } from './AppNavigation';
 import { AppLoginStack } from './LoginNavigation';
 import { AuthenticationAnswer } from '../utils/authentication';
+import auth from '@react-native-firebase/auth';
 
 export const Navigation = () => {
-    const { isAuthenticated } = useContext(AuthenticationAnswer);
+    const { user, setUser } = useContext(AuthenticationAnswer);
+    const [initializing, setInitializing] = useState(true);
+
+    const onAuthStateChanged = (user) => {
+        setUser(user);
+        if (initializing) setInitializing(false);
+    }
+
+    useEffect(() => {
+        const subscriber = auth().onAuthStateChanged(onAuthStateChanged);
+        return subscriber;
+    }, []);
+
+    if (initializing) return null;
 
     return (
         <NavigationContainer>
-            { isAuthenticated? <AppStack /> : <AppLoginStack />}
+            { user? <AppStack /> : <AppLoginStack />}
         </NavigationContainer>
     );
 };
