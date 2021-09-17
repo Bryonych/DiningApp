@@ -6,9 +6,15 @@ export const colours = {
     darkGreen: '#4F6367',
     light: '#EEF5DB',
     apricot: '#FE5F55',
+    white: '#FFFFFF',
+    black: '#000000'
 };
 
-
-
+export const images = {
+    headers: {
+        homeHeader: require('../assets/images/EasyOrder.png'),
+        petesHeader: require('../assets/images/PetesBurgers.png')
+    },
+};
 
 

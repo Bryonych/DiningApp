@@ -1,14 +1,15 @@
-
 import React, { useState, useContext, useEffect } from 'react';
 import { NavigationContainer } from '@react-navigation/native';
 import { AppStack } from './AppNavigation';
 import { AppLoginStack } from './LoginNavigation';
 import { AuthenticationAnswer } from '../utils/authentication';
 import auth from '@react-native-firebase/auth';
+import { Alert } from "react-native";
 
 export const Navigation = () => {
-    const { user, setUser } = useContext(AuthenticationAnswer);
-    const [initializing, setInitializing] = useState(true);
+
+    const [ initializing, setInitializing ] = useState(true);
+    const [ user, setUser ] = useState();
 
     const onAuthStateChanged = (user) => {
         setUser(user);
@@ -20,7 +21,8 @@ export const Navigation = () => {
         return subscriber;
     }, []);
 
-    if (initializing) return null;
+
+    if (initializing) return null; //change to loading page later
 
     return (
         <NavigationContainer>

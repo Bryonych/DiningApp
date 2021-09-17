@@ -21,30 +21,26 @@ const RegSchema = yup.object({
 export const RegistrationScreen = ({navigation}) => {
     const [email, setEmail] = useState('');
     const [password, setPassword] = useState('');
-    //const [repeatedPassword, setRepeatedPassword] = useState('');
+    const [repeatedPassword, setRepeatedPassword] = useState('');
 
-    const { register } = useContext(AuthenticationAnswer);
-
-    const callOnRegister = (values) => {
-        register(email, password);
-    }
+    const { doRegister } = useContext(AuthenticationAnswer);
 
     return(
         <TouchableWithoutFeedback onPress={() =>{
             Keyboard.dismiss();
         }}>
             <View style={styles.container}>
-                <View style={styles.box}>
+                <View style={styles.boxBig}>
                     <Text style={styles.instructionText}>Contact Details</Text>
                     <Formik
                         initialValues={{name: '', email: '', confirmEmail: '', phone: '',
-                        password: '', reconfirmPassword: '', check: false }}
+                            password: '', reconfirmPassword: '', check: false }}
                         validationSchema={RegSchema}
                         onSubmit={(values, actions) => {
                             setEmail(values.email);
                             setPassword(values.password);
                             setRepeatedPassword(values.reconfirmPassword);
-                            callOnRegister();
+                            doRegister(values.email, values.password);
                         }}
                     >
                         {(props) => (

@@ -1,11 +1,16 @@
 import {colours} from './settings';
 import { StyleSheet } from 'react-native';
+import { Dimensions } from 'react-native';
+
+const deviceWidth = Dimensions.get('screen').width;
+const deviceHeight = Dimensions.get('screen').height;
 
 export const styles = StyleSheet.create({
     container: {
         flex: 1,
         backgroundColor: colours.light,
-        paddingTop: 100,
+        paddingTop: 70,
+        justifyContent: 'space-between',
     },
     buttonStyle: {
         width: 180,
@@ -41,7 +46,6 @@ export const styles = StyleSheet.create({
     headerImage: {
         height: '100%',
         width: '100%',
-        opacity: 0.8,
     },
     textBox: {
         flexDirection: 'row',
@@ -51,7 +55,7 @@ export const styles = StyleSheet.create({
         borderColor: colours.darkGreen,
         padding: 15,
         margin: 10,
-        width: 500,
+        width: deviceWidth * 0.7,
         height: 70,
         fontSize: 30,
         alignSelf: 'center',
@@ -60,17 +64,21 @@ export const styles = StyleSheet.create({
     instructionText: {
         fontSize: 30,
         alignItems: 'flex-start',
+        paddingTop: 15,
+        color: colours.darkGreen,
+        fontWeight: 'bold',
     },
     logo: {
-        width: 500,
+        width: deviceWidth * 0.7,
         height: 250,
         borderColor: colours.darkGreen,
         borderWidth: 1,
         alignSelf: 'center',
+        borderRadius: 15,
     },
     box: {
-        width: 500,
-        height: 800,
+        width: deviceWidth * 0.7,
+        height: deviceHeight * 0.6,
         alignSelf: 'center',
         flexDirection: 'column',
         justifyContent: 'space-between',
@@ -84,6 +92,68 @@ export const styles = StyleSheet.create({
     error: {
         fontSize: 20,
         color: '#FF0000',
+    },
+    qrBox: {
+        width: '100%',
+        height: deviceHeight/2,
+    },
+    qrScanner: {
+        width: '100%',
+        height: deviceHeight/2,
+        borderRadius: 5,
+        borderWidth: 4,
+    },
+    cameraIcon: {
+        width: 70,
+        height: 50,
+        alignSelf: 'center',
+    },
+    buttonBar: {
+        height: 70,
+        width: '100%',
+        flexDirection: 'row'
+    },
+    boxBig: {
+        width: deviceWidth * 0.7,
+        height: deviceHeight * 0.75,
+        alignSelf: 'center',
+        flexDirection: 'column',
+        justifyContent: 'space-between',
+        paddingBottom: 20,
+    },
+    qrInstruction: {
+        flexDirection: 'column',
+        alignSelf: 'center',
+        justifyContent: 'center',
+        paddingBottom: 10,
+    },
+    qrText: {
+        fontWeight: 'bold',
+        fontSize: 30,
+        color: colours.darkGreen,
+        paddingBottom: 5,
+    },
+    buttonBarButton: {
+        backgroundColor: colours.medGreen,
+        width: deviceWidth / 3,
+        height: 70,
+    },
+    popup: {
+        margin: 0,
+        height: '50%',
+        borderWidth: 2,
+        borderRadius: 15,
+        backgroundColor: colours.white,
+        alignSelf: 'center',
+        justifyContent: 'center',
+    },
+    modal: {
+        alignSelf: 'center',
+        flex: 1,
+        flexDirection: 'column',
+        justifyContent: 'center',
+        width: deviceWidth*0.8,
+        height: deviceHeight*0.5,
     },
 });
 

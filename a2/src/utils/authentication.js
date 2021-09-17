@@ -1,103 +1,58 @@
 import React, { useState, createContext } from 'react';
 import auth from '@react-native-firebase/auth';
 
-export const AuthenticationAnswer = createContext([]);
+export const AuthenticationAnswer = createContext({});
 
 export const AuthenticationProvider = ({ children }) => {
-    //const [isLoading, setIsLoading] = useState(false);
     const [user, setUser] = useState(null);
-    //const [error, setError] = useState(null);
-
-    // auth().onAuthStateChanged((user) => {
-    //     if (user) {
-    //         setUser(user);
-    //         setIsLoading(false);
-    //     }
-    // });
-    //
-    // const loginRequest = (email, password) =>
-    //     auth().signInWithEmailAndPassword(email, password);
-    //
-    // const onLogin = (email, password) => {
-    //     setIsLoading(true);
-    //     loginRequest(email, password).then((person) => {
-    //         setUser(person);
-    //         setIsLoading(false);
-    //     }).catch((err) => {
-    //         setIsLoading(false);
-    //         setError(err.toString());
-    //     });
-    // };
-    //
-    // const onRegister = (email, password, reconfirmPassword) => {
-    //     setIsLoading(true);
-    //     if (password !== reconfirmPassword) {
-    //         setError('Re-entered password does not match original');
-    //         return;
-    //     }
-    //
-    //     auth().createUserWithEmailAndPassword(email, password).then((client) => {
-    //         setUser(client);
-    //         setIsLoading(false);
-    //     }).catch((err) => {
-    //         setIsLoading(false);
-    //         setError(err.toString());
-    //     });
-    // };
-    //
-    // const onLogout = () => {
-    //     setUser(null);
-    //     auth().signOut().then(async r => await auth().signOut());
-    // };
-
-    // return (
-    //     <AuthenticationAnswer.Provider value={{
-    //         isAuthenticated: !!user,
-    //         isLoading,
-    //         user,
-    //         error,
-    //         onLogin,
-    //         onRegister,
-    //         onLogout
-    //     }}>
-    //         {children}
-    //     </AuthenticationAnswer.Provider>
-    // );
+    const [errorMessage, setErrorMessage] = useState(null);
 
     return (
         <AuthenticationAnswer.Provider
             value={{
                 user,
                 setUser,
-                login: async (email, password) => {
-                    try {
-                        await auth().signInWithEmailAndPassword(email, password)
-                    } catch (e) {
-                        console.log(e);
-                    }
+                errorMessage,
+                setErrorMessage,
+                doLogin: async (email, password) => {
+                    setErrorMessage(null);
+                    await auth().signInWithEmailAndPassword(email, password).then(() => {
+                        console.log('Signed in');
+                    }).catch(error => {
+                        if (error.code === 'auth/user-not-found') {
+                            alert('No such user');
+                        }
+                        else if (error.code === 'auth/wrong-password') {
+                            alert('Invalid email/password combination');
+                        }
+                        console.error(error);
+                    })
                 },
-                register: async (email, password) => {
-                    try {
-                        await auth().createUserWithEmailAndPassword(email, password);
-                    } catch (e) {
-                        console.log(e);
-                    }
+                doRegister: async (email, password) => {
+                    setErrorMessage(null);
+                    await auth().createUserWithEmailAndPassword(email, password).then(() => {
+                        console.log('User created');
+                    }).catch(error => {
+                        if (error.code === 'auth/email-already-in-use') {
+                            alert('That email is already in use');
+                        }
+                        if (error.code === 'auth/invalid-email') {
+                            alert('That email address is invalid');
+                        }
+                        console.error(error);
+                    });
+
                 },
-                logout: async () => {
-                    try {
-                        await auth().signOut();
-                    } catch (e) {
-                        console.log(e);
-                    }
+                doLogout: async () => {
+                    setErrorMessage(null);
+                    await auth().signOut().then(() => setUser(null))
+                        .catch(error => {
+                            alert('Failed to logout: ' + error);
+                            console.error(error);
+                        });
                 },
             }}>
             {children}
         </AuthenticationAnswer.Provider>
     )
 }
-
-// export const withAuth = (Child) => (props) => (
-//     <AuthenticationAnswer.Consumer>
-//         {(context) => <Child {...props} {...context} /> }
-//     </AuthenticationAnswer.Consumer>
-// );

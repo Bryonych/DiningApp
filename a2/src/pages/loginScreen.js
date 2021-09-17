@@ -1,7 +1,7 @@
 import React, { useState, useContext } from 'react';
-import { AuthenticationAnswer } from '../utils/authentication';
+import { AuthenticationAnswer, errorMessage } from '../utils/authentication';
 import { Button } from "react-native-elements";
-import {View, Text, TextInput, Image, Keyboard, TouchableWithoutFeedback} from "react-native";
+import {View, Text, TextInput, Image, Keyboard, TouchableWithoutFeedback, Alert} from "react-native";
 import { styles } from '../styles/styles';
 import { AppLoginStack } from '../navigation/LoginNavigation';
 
@@ -9,7 +9,8 @@ import { AppLoginStack } from '../navigation/LoginNavigation';
 export const LoginScreen = ({navigation}) => {
     const [email, setEmail] = useState('');
     const [password, setPassword] = useState('');
-    const { login, isLoading, error } = useContext(AuthenticationAnswer);
+    const { doLogin } = useContext(AuthenticationAnswer);
+    const { errorMessage } = useContext(AuthenticationAnswer);
 
     return (
         <TouchableWithoutFeedback onPress={() =>{
@@ -39,8 +40,8 @@ export const LoginScreen = ({navigation}) => {
                         buttonStyle={styles.buttonStyle}
                         title="Login"
                         onPress={() => {
-                            login(email, password)
-                            }
+                            doLogin(email, password)
+                        }
                         }
                     />
                     <Button
