@@ -13,13 +13,15 @@ export function HeaderTitle() {
     }, [header])
 
     if (header != null) {
-        return (
-            <ImageBackground source={images.headers.petesHeader} style={styles.headerImage}>
-                <View style={styles.header}>
-                    <Text style={styles.headerText}></Text>
-                </View>
-            </ImageBackground>
-        )
+        if (header == 'petesHeader') {
+            return (
+                <ImageBackground source={images.headers.petesHeader} style={styles.headerImage}>
+                    <View style={styles.header}>
+                        <Text style={styles.headerText}></Text>
+                    </View>
+                </ImageBackground>
+            )
+        }
     }
 
     return (

@@ -2,17 +2,19 @@ import { ButtonGroup, Button } from "react-native-elements";
 import {styles} from "../styles/styles";
 import React, { useState, useContext } from 'react';
 import { AuthenticationAnswer } from '../utils/authentication';
+import { useNavigation } from '@react-navigation/native';
 
-export const ButtonBar = ({navigation}) => {
+export const ButtonBar = () => {
     const { doLogout } = useContext(AuthenticationAnswer);
+    const navigation = useNavigation();
 
     const comp1 = () =>
         <Button
             titleStyle={styles.buttonTitleStyle}
             buttonStyle={styles.buttonBarButton}
-            title="My Profile"
+            title="Home"
             onPress={() => {
-                navigation.navigate('MyProfile');
+                navigation.navigate('Home');
                 }
             }
         />
@@ -21,9 +23,9 @@ export const ButtonBar = ({navigation}) => {
         <Button
             titleStyle={styles.buttonTitleStyle}
             buttonStyle={styles.buttonBarButton}
-            title="About Us"
+            title="My Profile"
             onPress={() => {
-                navigation.navigate('AboutUs');
+                navigation.navigate('MyProfile');
                 }
             }
         />

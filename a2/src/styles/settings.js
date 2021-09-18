@@ -15,6 +15,12 @@ export const images = {
         homeHeader: require('../assets/images/EasyOrder.png'),
         petesHeader: require('../assets/images/PetesBurgers.png')
     },
+    images: {
+        petesFood: require('../assets/images/burger.jpg'),
+        petesDrink: require('../assets/images/drinks.jpg')
+    }
 };
+
+
 
 

@@ -10,10 +10,19 @@ import { ButtonBar } from '../components/buttonGroup';
 export const HomeScreen = ({navigation}) => {
 
     const { loadRestaurant } = useContext(RestaurantAnswer);
+    const [ id, setId ] = useState(0);
 
     const onSuccess = e => {
         const restCode = e.data.substring(e.data.length-3, e.data.length);
         loadRestaurant(restCode);
+    }
+
+    const handleSubmit = () => {
+        try {
+            loadRestaurant(id);
+        } catch (e) {
+            alert('Invalid code');
+        }
     }
 
     return(
@@ -36,6 +45,7 @@ export const HomeScreen = ({navigation}) => {
                             cameraStyle={styles.qrScanner}
                             onRead={onSuccess}
                             flashMode={RNCamera.Constants.FlashMode.torch}
+                            reactivate={true}
                         />
                     </View>
                     <View>
@@ -43,8 +53,9 @@ export const HomeScreen = ({navigation}) => {
                         <TextInput
                             style={styles.textBox}
                             placeholder='Code'
-                            onChangeText={(val) => setRestaurant(val)}
+                            onChangeText={(val) => setId(parseInt(val))}
                             keyboardType='numeric'
+                            onSubmitEditing={() => handleSubmit()}
                         />
                     </View>
                 </View>

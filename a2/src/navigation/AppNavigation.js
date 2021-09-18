@@ -3,6 +3,7 @@ import { NavigationContainer } from '@react-navigation/native';
 import { createNativeStackNavigator } from '@react-navigation/native-stack';
 import { HomeScreen } from '../pages/homeScreen';
 import { RestaurantHomeScreen } from "../pages/restaurantHomeScreen";
+import { MenuScreen } from "../pages/menuScreen";
 import { HeaderTitle } from "../components/header";
 import { colours } from "../styles/settings";
 import { RestaurantProvider } from "../utils/restaurant";
@@ -36,7 +37,10 @@ export const AppStack = ({navigation}) => {
                     name="RestaurantHome"
                     component={ RestaurantHomeScreen }
                 />
-                {/*<Stack.Screen name="FoodOrder" component={FoodOrderScreen} />*/}
+                <Stack.Screen
+                    name="Menu"
+                    component={MenuScreen}
+                />
                 {/*<Stack.Screen name="ItemDetails" component={ItemDetailsScreen} />*/}
                 {/*<Stack.Screen name="OrderDetails" component={OrderDetailsScreen} />*/}
                 {/*<Stack.Screen name="Payment" component={PaymentScreen} />*/}

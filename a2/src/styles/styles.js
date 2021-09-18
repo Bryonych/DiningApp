@@ -139,8 +139,7 @@ export const styles = StyleSheet.create({
         height: 70,
     },
     popup: {
-        margin: 0,
-        height: '50%',
+        margin: 70,
         borderWidth: 2,
         borderRadius: 15,
         backgroundColor: colours.white,
@@ -155,6 +154,48 @@ export const styles = StyleSheet.create({
         width: deviceWidth*0.8,
         height: deviceHeight*0.5,
     },
+    modalButton: {
+        width: 180,
+        justifyContent: 'center',
+        backgroundColor: colours.medGreen,
+        borderWidth: 2,
+        borderColor: colours.darkGreen,
+        elevation: 2,
+        marginTop: 20,
+        alignSelf: 'center',
+    },
+    modalText: {
+        fontSize: 30,
+        alignItems: 'flex-start',
+        paddingTop: 15,
+        color: colours.darkGreen,
+        fontWeight: 'bold',
+        alignSelf: 'center',
+        marginBottom: 20,
+    },
+    menuAlign: {
+        flexDirection: 'row',
+        justifyContent: 'space-between',
+    },
+    menuButton: {
+        width: 230,
+        justifyContent: 'center',
+        backgroundColor: colours.medGreen,
+        borderWidth: 2,
+        borderColor: colours.darkGreen,
+        elevation: 3,
+    },
+    mainImage: {
+        width: 230,
+        height: 230,
+        borderRadius: 5,
+        borderWidth: 2,
+    },
+    blurb: {
+        fontSize: 30,
+        color: colours.darkGreen,
+        marginBottom: 12,
+    }
 });
 
 

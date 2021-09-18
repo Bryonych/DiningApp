@@ -2,12 +2,15 @@
 import {View, Text, TextInput, Image, Keyboard, TouchableWithoutFeedback} from "react-native";
 import {Button} from "react-native-elements";
 import {styles} from "../styles/styles";
+import {images, text} from "../styles/settings";
 import React, {useContext, useEffect, useState} from "react";
 import {ButtonBar} from "../components/buttonGroup";
 import {RestaurantAnswer} from "../utils/restaurant";
 import Modal from "react-native-modal";
 import firestore from "@react-native-firebase/firestore";
 import _ from 'lodash';
+import { MainImage } from "../components/image";
+import { Blurb } from "../components/textBlock";
 
 
 export const RestaurantHomeScreen = ({navigation}) => {
@@ -18,6 +21,9 @@ export const RestaurantHomeScreen = ({navigation}) => {
     const { setTableNumber } = useContext(RestaurantAnswer);
     const { tableNumber } = useContext(RestaurantAnswer);
     const { tableNumbers } = useContext(RestaurantAnswer);
+    const { getFoodMenu } = useContext(RestaurantAnswer);
+    const { getDrinksMenu } = useContext(RestaurantAnswer);
+
 
     let options = []
     useEffect(() => {
@@ -39,30 +45,37 @@ export const RestaurantHomeScreen = ({navigation}) => {
         }
     }
 
-
     return (
         <View style={styles.container}>
-            <Button
-                titleStyle={styles.buttonTitleStyle}
-                buttonStyle={styles.buttonStyle}
-                title="Food Menu"
-                onPress={() => {
-                    navigation.navigate('FoodOrder')
-                }
-                }
-            />
-            <Button
-                titleStyle={styles.buttonTitleStyle}
-                buttonStyle={styles.buttonStyle}
-                title="Drinks Menu"
-                onPress={() => {
-                    navigation.navigate('FoodOrder')
-                }
-                }
-            />
+            <View style={styles.boxBig}>
+                <View style={styles.menuAlign}>
+                    <Button
+                        titleStyle={styles.buttonTitleStyle}
+                        buttonStyle={styles.menuButton}
+                        title="Food Menu"
+                        onPress={() => {
+                            getFoodMenu()
+                            navigation.navigate('Menu')
+                        }
+                        }
+                    />
+                    <Button
+                        titleStyle={styles.buttonTitleStyle}
+                        buttonStyle={styles.menuButton}
+                        title="Drinks Menu"
+                        onPress={() => {
+                            getDrinksMenu()
+                            navigation.navigate('Menu')
+                        }
+                        }
+                    />
+                </View>
+                <MainImage/>
+                <Blurb/>
+            </View>
             <Modal isVisible={isModalVisible} style={styles.popup} anymationType='slide'>
                 <View style={styles.modal}>
-                <Text style={{...styles.instructionText, alignSelf: 'center'}}>Please enter your table number</Text>
+                    <Text style={styles.modalText}>Please enter your table number</Text>
                     <TextInput style={styles.textBox}
                         placeholder="Table Number"
                         keyboardType="numeric"
@@ -70,7 +83,7 @@ export const RestaurantHomeScreen = ({navigation}) => {
                         }
                     />
                     <Button
-                        buttonStyle={{...styles.buttonStyle, alignSelf: 'Center'}}
+                        buttonStyle={styles.modalButton}
                         titleStyle={styles.buttonTitleStyle}
                         title="Enter"
                         onPress={() => handleTableNumber()}/>
