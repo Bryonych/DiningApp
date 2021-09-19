@@ -17,7 +17,16 @@ export const images = {
     },
     images: {
         petesFood: require('../assets/images/burger.jpg'),
-        petesDrink: require('../assets/images/drinks.jpg')
+        petesDrink: require('../assets/images/drinks.jpg'),
+        petesCheese: require('../assets/images/CheeseBurger.jpg'),
+        petesChicken: require('../assets/images/ChickenBurger.jpg'),
+        petesChips: require('../assets/images/Chips.jpg'),
+        petesFish: require('../assets/images/FishBurger.jpg'),
+        petesHaloumi: require('../assets/images/ChickenBurger.jpg'),
+        petesIpa: require('../assets/images/ipa.jpg'),
+        petesLarger: require('../assets/images/Larger.jpg'),
+        petesRed: require('../assets/images/RedWine.jpg'),
+        petesWhite: require('../assets/images/WhiteWine.jpg'),
     }
 };
 

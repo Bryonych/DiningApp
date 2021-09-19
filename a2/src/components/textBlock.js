@@ -20,7 +20,7 @@ export function Blurb() {
                 eating experience - they're a lifestyle. Also on offer, we stock some of Wellington's finest
                 craft beer and local wines, as well as a large range of non-alcoholic drinks.</Text>
                 <Text style={styles.instructionText}>We hope you enjoy the experience as much as we enjoy bringing it to you. Please select
-                    a menu above to begin.</Text>
+                    the menu above to begin.</Text>
             </View>
         );
 

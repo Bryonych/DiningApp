@@ -2,12 +2,10 @@
 import {View, Text, TextInput, Image, Keyboard, TouchableWithoutFeedback} from "react-native";
 import {Button} from "react-native-elements";
 import {styles} from "../styles/styles";
-import {images, text} from "../styles/settings";
 import React, {useContext, useEffect, useState} from "react";
 import {ButtonBar} from "../components/buttonGroup";
 import {RestaurantAnswer} from "../utils/restaurant";
 import Modal from "react-native-modal";
-import firestore from "@react-native-firebase/firestore";
 import _ from 'lodash';
 import { MainImage } from "../components/image";
 import { Blurb } from "../components/textBlock";
@@ -15,14 +13,10 @@ import { Blurb } from "../components/textBlock";
 
 export const RestaurantHomeScreen = ({navigation}) => {
 
-    const { name } = useContext(RestaurantAnswer);
     const [ isModalVisible, setIsModalVisible ] = useState(true);
-    const handleModal = () => setIsModalVisible(() => !isModalVisible);
     const { setTableNumber } = useContext(RestaurantAnswer);
     const { tableNumber } = useContext(RestaurantAnswer);
     const { tableNumbers } = useContext(RestaurantAnswer);
-    const { getFoodMenu } = useContext(RestaurantAnswer);
-    const { getDrinksMenu } = useContext(RestaurantAnswer);
 
 
     let options = []
@@ -54,8 +48,7 @@ export const RestaurantHomeScreen = ({navigation}) => {
                         buttonStyle={styles.menuButton}
                         title="Food Menu"
                         onPress={() => {
-                            getFoodMenu()
-                            navigation.navigate('Menu')
+                            navigation.navigate('Menu', {type: 'food'})
                         }
                         }
                     />
@@ -64,8 +57,7 @@ export const RestaurantHomeScreen = ({navigation}) => {
                         buttonStyle={styles.menuButton}
                         title="Drinks Menu"
                         onPress={() => {
-                            getDrinksMenu()
-                            navigation.navigate('Menu')
+                            navigation.navigate('Menu', {type: 'drinks'})
                         }
                         }
                     />

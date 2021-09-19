@@ -20,6 +20,8 @@ target 'a2' do
 
   pod 'RNPermissions', :path => '../node_modules/react-native-permissions'
 
+  pod 'react-native-element-dropdown', :path => '../node_modules/react-native-element-dropdown'
+
   target 'a2Tests' do
     inherit! :complete
     # Pods for testing

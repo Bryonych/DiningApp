@@ -1,4 +1,4 @@
-import React, {useState, createContext, useEffect, useRef} from 'react';
+import React, {useState, createContext, useEffect} from 'react';
 import firestore from '@react-native-firebase/firestore';
 import { useNavigation } from '@react-navigation/native';
 import { AppLoginStack } from '../navigation/LoginNavigation';
@@ -11,7 +11,8 @@ export const RestaurantProvider = ({ children }) => {
     const [ tableNumber, setTableNumber] = useState(0);
     const [ name, setName ] = useState(null);
     const [ tableNumbers, setTableNumbers ] = useState([])
-    const [ menu, setMenu ] = useState({})
+    const [ foodMenu, setFoodMenu ] = useState([])
+    const [ drinksMenu, setDrinksMenu ] = useState([])
 
     useEffect(() => {
         setHeader(firestore().collection('Restaurants').doc(restaurant).get()["headerImage"])
@@ -24,7 +25,6 @@ export const RestaurantProvider = ({ children }) => {
     useEffect(() => {
         setTableNumbers(firestore().collection('Restaurants').doc(restaurant).get()["TableNumbers"])
     }, []);
-
 
     const navigation = useNavigation();
 
@@ -41,8 +41,10 @@ export const RestaurantProvider = ({ children }) => {
                 setName,
                 tableNumbers,
                 setTableNumbers,
-                menu,
-                setMenu,
+                foodMenu,
+                setFoodMenu,
+                drinksMenu,
+                setDrinksMenu,
                 loadRestaurant: async (restCode) => {
                     setRestaurant(restCode);
                     const currentRestaurant = firestore().collection('Restaurants').doc(restCode);
@@ -58,12 +60,26 @@ export const RestaurantProvider = ({ children }) => {
                     }
                 },
                 getFoodMenu: () => {
-                    setMenu(firestore().collection('Menus').where('restaurantId', '==', restaurant)
-                        .where('type', '==', 'food'))
+                    const query = firestore().collection('Menus').where('restaurantId', '==', parseInt(restaurant))
+                        .where('type', '==', 'food');
+                    let items = [];
+                    query.get().then(querySnapshot => {
+                        querySnapshot.forEach(documentSnapshot => {
+                            items.push(documentSnapshot.data());
+                        });
+                    });
+                    setFoodMenu(items)
                 },
                 getDrinksMenu: () => {
-                    setMenu(firestore().collection('Menus').where('restaurantId', '==', restaurant)
-                        .where('type', '==', 'drink'))
+                    const query = firestore().collection('Menus').where('restaurantId', '==', parseInt(restaurant))
+                        .where('type', '==', 'drink');
+                    let items = [];
+                    query.get().then(querySnapshot => {
+                        querySnapshot.forEach(documentSnapshot => {
+                            items.push(documentSnapshot.data());
+                        });
+                    });
+                    setDrinksMenu(items)
                 },
             }}>
             {children}

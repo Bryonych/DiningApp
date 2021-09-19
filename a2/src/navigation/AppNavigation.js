@@ -4,6 +4,7 @@ import { createNativeStackNavigator } from '@react-navigation/native-stack';
 import { HomeScreen } from '../pages/homeScreen';
 import { RestaurantHomeScreen } from "../pages/restaurantHomeScreen";
 import { MenuScreen } from "../pages/menuScreen";
+import { ItemDetailsScreen } from "../pages/itemDetails";
 import { HeaderTitle } from "../components/header";
 import { colours } from "../styles/settings";
 import { RestaurantProvider } from "../utils/restaurant";
@@ -32,7 +33,6 @@ export const AppStack = ({navigation}) => {
                     component={ HomeScreen }
                 />
                 {/*<Stack.Screen name="MyProfile" component={MyProfileScreen} />*/}
-                {/*<Stack.Screen name="AboutUs" component={AboutUsScreen} />*/}
                 <Stack.Screen
                     name="RestaurantHome"
                     component={ RestaurantHomeScreen }
@@ -41,7 +41,10 @@ export const AppStack = ({navigation}) => {
                     name="Menu"
                     component={MenuScreen}
                 />
-                {/*<Stack.Screen name="ItemDetails" component={ItemDetailsScreen} />*/}
+                <Stack.Screen
+                    name="ItemDetails"
+                    component={ItemDetailsScreen}
+                />
                 {/*<Stack.Screen name="OrderDetails" component={OrderDetailsScreen} />*/}
                 {/*<Stack.Screen name="Payment" component={PaymentScreen} />*/}
                 {/*<Stack.Screen name="OrderProcessing" component={OrderProcessingScreen} />*/}

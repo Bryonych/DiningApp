@@ -10,11 +10,14 @@ import { ButtonBar } from '../components/buttonGroup';
 export const HomeScreen = ({navigation}) => {
 
     const { loadRestaurant } = useContext(RestaurantAnswer);
+    const { getFoodMenu, getDrinksMenu } = useContext(RestaurantAnswer);
     const [ id, setId ] = useState(0);
 
     const onSuccess = e => {
         const restCode = e.data.substring(e.data.length-3, e.data.length);
         loadRestaurant(restCode);
+        getFoodMenu();
+        getDrinksMenu();
     }
 
     const handleSubmit = () => {

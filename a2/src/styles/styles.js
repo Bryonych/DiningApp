@@ -195,7 +195,63 @@ export const styles = StyleSheet.create({
         fontSize: 30,
         color: colours.darkGreen,
         marginBottom: 12,
+    },
+    menuItem: {
+        flexDirection: 'row',
+        justifyContent: 'space-between',
+        borderWidth: 1,
+    },
+    menuImage: {
+        width: 200,
+        height: 200,
+    },
+    listBox: {
+        backgroundColor: colours.white,
+    },
+    foodDescription: {
+        fontSize: 30,
+        color: colours.darkGreen,
+        fontWeight: 'bold',
+        marginRight: 30,
+        marginTop: 20,
+    },
+    inBetween: {
+        height: 10,
+        width: '100%',
+        backgroundColor: colours.lightGreen,
+    },
+    largeMenuImage: {
+        width: 400,
+        height: 400,
+        alignSelf: 'center',
+        borderRadius: 5,
+        marginTop: 0,
+    },
+    largeItem: {
+        flexDirection: 'column',
+        width: deviceWidth*0.8,
+        alignSelf: 'flex-start',
+        justifyContent: 'space-between',
+        padding: 20,
+    },
+    descriptionText: {
+        fontSize: 25,
+        color: colours.darkGreen,
+        alignSelf: 'center',
+        marginTop: 20,
+        marginBottom: 20,
+    },
+    picker: {
+        height: 60,
+        borderColor: colours.darkGreen,
+        borderWidth: 1,
+        marginTop: 20,
+        marginBottom: 20,
+        color: colours.darkGreen,
+        fontSize: 25,
+        borderRadius: 5,
     }
+
 });
 
 
