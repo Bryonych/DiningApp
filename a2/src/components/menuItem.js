@@ -1,6 +1,6 @@
 import {styles} from "../styles/styles";
 import {View, Text, Image, TouchableOpacity} from "react-native";
-import React, {useContext, useEffect, useState} from 'react';
+import React, {useContext, useCallback, useState} from 'react';
 import {colours, images} from '../styles/settings.js';
 import Modal from "react-native-modal";
 import {Button} from "react-native-elements";
@@ -8,7 +8,7 @@ import {Dropdown, MultiSelect} from 'react-native-element-dropdown';
 
 
 
-export function MenuItem (item, key) {
+export function MenuItem ({item, key, parentCallback}) {
 
     const [ isModalVisible, setIsModalVisible ] = useState(false);
     const [ quantity, setQuantity ] = useState(0);
@@ -83,7 +83,7 @@ export function MenuItem (item, key) {
                             titleStyle={styles.buttonTitleStyle}
                             title="Confirm"
                             onPress={() => {
-                                props.parentCallback(item, quantity);
+                                parentCallback(item, quantity);
                                 setIsModalVisible(false);
                             }}
                             />

@@ -5,10 +5,11 @@ import { HomeScreen } from '../pages/homeScreen';
 import { RestaurantHomeScreen } from "../pages/restaurantHomeScreen";
 import { MenuScreen } from "../pages/menuScreen";
 import { ItemDetailsScreen } from "../pages/itemDetails";
+import { OrderDetailsScreen } from "../pages/orderDetails";
 import { HeaderTitle } from "../components/header";
 import { colours } from "../styles/settings";
 import { RestaurantProvider } from "../utils/restaurant";
-import { useEffect, useState } from "react";
+import { ShoppingProvider } from "../utils/shoppingCart";
 
 const Stack = createNativeStackNavigator();
 
@@ -17,39 +18,44 @@ export const AppStack = ({navigation}) => {
 
     return (
         <RestaurantProvider>
-            <Stack.Navigator initialRouteName="Home"
-                             screenOptions={ {
-                                 headerTitleAlign: 'center',
-                                 headerTitle: () => <HeaderTitle />,
-                                 headerStyle: {
-                                     backgroundColor: colours.black,
-                                     height: 200,
-                                 },
-                                 headerTintColor: colours.darkGreen,
+            <ShoppingProvider>
+                <Stack.Navigator initialRouteName="Home"
+                                 screenOptions={ {
+                                     headerTitleAlign: 'center',
+                                     headerTitle: () => <HeaderTitle />,
+                                     headerStyle: {
+                                         backgroundColor: colours.black,
+                                         height: 200,
+                                     },
+                                     headerTintColor: colours.darkGreen,
 
-                             }}>
-                <Stack.Screen
-                    name="Home"
-                    component={ HomeScreen }
-                />
-                {/*<Stack.Screen name="MyProfile" component={MyProfileScreen} />*/}
-                <Stack.Screen
-                    name="RestaurantHome"
-                    component={ RestaurantHomeScreen }
-                />
-                <Stack.Screen
-                    name="Menu"
-                    component={MenuScreen}
-                />
-                <Stack.Screen
-                    name="ItemDetails"
-                    component={ItemDetailsScreen}
-                />
-                {/*<Stack.Screen name="OrderDetails" component={OrderDetailsScreen} />*/}
-                {/*<Stack.Screen name="Payment" component={PaymentScreen} />*/}
-                {/*<Stack.Screen name="OrderProcessing" component={OrderProcessingScreen} />*/}
-                {/*<Stack.Screen name="OrderConfirmed" component={OrderConfirmedScreen} />*/}
-            </Stack.Navigator>
+                                 }}>
+                    <Stack.Screen
+                        name="Home"
+                        component={ HomeScreen }
+                    />
+                    {/*<Stack.Screen name="MyProfile" component={MyProfileScreen} />*/}
+                    <Stack.Screen
+                        name="RestaurantHome"
+                        component={ RestaurantHomeScreen }
+                    />
+                    <Stack.Screen
+                        name="Menu"
+                        component={MenuScreen}
+                    />
+                    <Stack.Screen
+                        name="ItemDetails"
+                        component={ItemDetailsScreen}
+                    />
+                    <Stack.Screen
+                        name="OrderDetails"
+                        component={OrderDetailsScreen}
+                    />
+                    {/*<Stack.Screen name="Payment" component={PaymentScreen} />*/}
+                    {/*<Stack.Screen name="OrderProcessing" component={OrderProcessingScreen} />*/}
+                    {/*<Stack.Screen name="OrderConfirmed" component={OrderConfirmedScreen} />*/}
+                </Stack.Navigator>
+            </ShoppingProvider>
         </RestaurantProvider>
     )
 }

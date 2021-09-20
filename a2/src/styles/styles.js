@@ -250,6 +250,36 @@ export const styles = StyleSheet.create({
         color: colours.darkGreen,
         fontSize: 25,
         borderRadius: 5,
+    },
+    shoppingCart: {
+        flexDirection: 'row',
+        justifyContent: 'flex-end',
+        backgroundColor: colours.white,
+        paddingBottom: 20,
+        paddingRight: 20,
+        height: 150,
+    },
+    cartImage: {
+        width: 120,
+        height: 120,
+    },
+    cartButton: {
+        width: 200,
+        justifyContent: 'center',
+        backgroundColor: colours.apricot,
+        borderWidth: 2,
+        borderColor: colours.darkGreen,
+        elevation: 3,
+        alignSelf: 'flex-end',
+    },
+    menuContainer: {
+        flex:1,
+    },
+    orderBox: {
+        width: deviceWidth * 0.8,
+        height: deviceHeight * 0.8,
+        flexDirection: 'column',
+        justifyContent: 'center',
     }
 
 });
