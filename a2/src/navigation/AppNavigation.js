@@ -6,6 +6,7 @@ import { RestaurantHomeScreen } from "../pages/restaurantHomeScreen";
 import { MenuScreen } from "../pages/menuScreen";
 import { ItemDetailsScreen } from "../pages/itemDetails";
 import { OrderDetailsScreen } from "../pages/orderDetails";
+import { OrderConfirmedScreen } from '../pages/orderConfirmed';
 import { HeaderTitle } from "../components/header";
 import { colours } from "../styles/settings";
 import { RestaurantProvider } from "../utils/restaurant";
@@ -53,7 +54,10 @@ export const AppStack = ({navigation}) => {
                     />
                     {/*<Stack.Screen name="Payment" component={PaymentScreen} />*/}
                     {/*<Stack.Screen name="OrderProcessing" component={OrderProcessingScreen} />*/}
-                    {/*<Stack.Screen name="OrderConfirmed" component={OrderConfirmedScreen} />*/}
+                    <Stack.Screen
+                        name="OrderConfirmed"
+                        component={OrderConfirmedScreen}
+                    />
                 </Stack.Navigator>
             </ShoppingProvider>
         </RestaurantProvider>

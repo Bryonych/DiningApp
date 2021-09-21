@@ -45,7 +45,6 @@ export const HomeScreen = ({navigation}) => {
                         <QRCodeScanner
                             containerStyle={styles.qrBox}
                             cameraStyle={styles.qrScanner}
-                            cameraStyle={styles.qrScanner}
                             onRead={onSuccess}
                             flashMode={RNCamera.Constants.FlashMode.torch}
                             reactivate={true}

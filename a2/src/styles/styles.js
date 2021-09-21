@@ -273,15 +273,65 @@ export const styles = StyleSheet.create({
         alignSelf: 'flex-end',
     },
     menuContainer: {
-        flex:1,
+        width: deviceWidth*0.8,
+        height: deviceHeight*0.7,
+        backgroundColor: colours.white,
+        borderWidth: 2,
+        alignSelf: 'center',
+        marginTop: 20,
+        padding: 10,
     },
     orderBox: {
         width: deviceWidth * 0.8,
         height: deviceHeight * 0.8,
         flexDirection: 'column',
         justifyContent: 'center',
-    }
+    },
+
+    listText: {
+        fontSize: 30,
+        color: colours.darkGreen,
+        marginTop: 10,
+        marginBottom: 10,
+        padding: 10,
+    },
+    checkBox: {
+        marginTop: 20,
+        marginBottom: 10,
+    },
+    price: {
+        fontSize: 50,
+        fontWeight: 'bold',
+        color: colours.darkGreen,
+        marginTop: 50,
+    },
+    orderConfirm: {
+        width: deviceWidth*0.8,
+        height: deviceHeight*0.5,
+        alignSelf: 'center',
+        backgroundColor: colours.white,
+        borderWidth: 2,
+        margin:20,
+        padding: 20,
+        justifyContent: 'center',
+        alignItems: 'center',
+    },
+    wideButton: {
+        width: 220,
+        justifyContent: 'center',
+        backgroundColor: colours.medGreen,
+        borderWidth: 2,
+        borderColor: colours.darkGreen,
+        elevation: 2,
+        marginTop: 20,
+        alignSelf: 'center',
+    },
+    twoButtons: {
+        flexDirection: 'row',
+        justifyContent: 'center',
+    },
 
 });
+
 
 

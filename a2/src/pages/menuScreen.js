@@ -1,7 +1,7 @@
 import * as React from "react";
 import { useContext, useEffect, useCallback } from "react";
 import {RestaurantAnswer} from "../utils/restaurant";
-import {Button} from "react-native-elements";
+import {ButtonBar} from "../components/buttonGroup";
 import {styles} from "../styles/styles";
 import {MenuItem} from "../components/menuItem";
 import {ScrollView, SafeAreaView, View} from "react-native";
@@ -27,37 +27,43 @@ export const MenuScreen = ({route, navigation}) => {
 
     if (type == 'food') {
         return (
-            <View style={styles.menuContainer}>
-                <ShoppingCart/>
-                <SafeAreaView style={{flex: 1}}>
-                    <View style={styles.listBox}>
-                        <ScrollView>
-                            {
-                                foodMenu.map(item => {
-                                    return <MenuItem item={item} key={item.id} parentCallback={callback}/>
-                                })
-                            }
-                        </ScrollView>
-                    </View>
-                </SafeAreaView>
+            <View style={styles.container}>
+                <View style={styles.menuContainer}>
+                    <ShoppingCart/>
+                    <SafeAreaView style={{flex: 1}}>
+                        <View style={styles.listBox}>
+                            <ScrollView>
+                                {
+                                    foodMenu.map((item, i) => {
+                                        return <MenuItem item={item} key={i} parentCallback={callback}/>
+                                    })
+                                }
+                            </ScrollView>
+                        </View>
+                    </SafeAreaView>
+                </View>
+                <ButtonBar/>
             </View>
         )
     }
     else {
         return (
-            <View style={styles.menuContainer}>
-                <ShoppingCart/>
-                <SafeAreaView style={{flex: 1}}>
-                    <View style={styles.listBox}>
-                        <ScrollView>
-                            {
-                                drinksMenu.map(item => {
-                                    return <MenuItem item={item} key={item.id} parentCallback={callback}/>
-                                })
-                            }
-                        </ScrollView>
-                    </View>
-                </SafeAreaView>
+            <View style={styles.container}>
+                <View style={styles.menuContainer}>
+                    <ShoppingCart/>
+                    <SafeAreaView style={{flex: 1}}>
+                        <View style={styles.listBox}>
+                            <ScrollView>
+                                {
+                                    drinksMenu.map((item, i) => {
+                                        return <MenuItem item={item} key={i} parentCallback={callback}/>
+                                    })
+                                }
+                            </ScrollView>
+                        </View>
+                    </SafeAreaView>
+                </View>
+                <ButtonBar/>
             </View>
         )
     }

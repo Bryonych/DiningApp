@@ -100,6 +100,7 @@ export const RegistrationScreen = ({navigation}) => {
                                 <CheckBox
                                     title='I agree to the terms and conditions'
                                     checkedTitle='You agreed to our terms and conditions'
+                                    containerStyle={{padding: 2}}
                                     checked={props.values.check}
                                     onPress={() => props.setFieldValue('check', !props.values.check)}
                                 >I agree to the terms and conditions</CheckBox>

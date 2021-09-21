@@ -6,10 +6,11 @@ import { RegistrationScreen } from '../pages/registrationScreen';
 import { HeaderTitle } from '../components/header';
 import {colours} from "../styles/settings";
 import { HeaderImage } from '../styles/settings'
-import { Keyboard, TouchableWithoutFeedback } from "react-native";
+import {Dimensions, Keyboard, TouchableWithoutFeedback} from "react-native";
 
 
 const LoginStack = createNativeStackNavigator();
+const deviceHeight = Dimensions.get('screen').height;
 
 export const AppLoginStack = () => {
     return (
@@ -19,7 +20,7 @@ export const AppLoginStack = () => {
             headerTitle: () => <HeaderTitle />,
             headerStyle: {
                 backgroundColor: colours.lightGreen,
-                height: 200,
+                height: 150,
             },
             headerTintColor: colours.darkGreen,
 

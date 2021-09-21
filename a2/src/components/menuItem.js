@@ -53,7 +53,7 @@ export function MenuItem ({item, key, parentCallback}) {
     return (
         <View>
             <TouchableOpacity onPress={() => pressHandler()}>
-                <View key={key} style={styles.menuItem}>
+                <View style={styles.menuItem}>
                     <Image style={styles.menuImage} source = {img}/>
                     <Text style={styles.foodDescription}>{item.itemName}</Text>
                     <Text style={styles.foodDescription}>${item.price}</Text>

@@ -25,7 +25,7 @@ export const ButtonBar = () => {
             buttonStyle={styles.buttonBarButton}
             title="My Profile"
             onPress={() => {
-                navigation.navigate('MyProfile');
+                //navigation.navigate('MyProfile');
                 }
             }
         />

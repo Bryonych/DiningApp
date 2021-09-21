@@ -20,10 +20,13 @@ export const ShoppingProvider = ({ children }) => {
                 items,
                 setItems,
                 itemNames,
+                total,
                 addItem: (item, quantity) => {
+                    let runningTotal = total;
                     for (let i = 0; i < quantity; i++){
                         items.push(item);
-                        setTotal(total + item.price);
+                        runningTotal += item.price;
+                        setTotal(runningTotal);
                         itemNames.push(item.itemName);
                     }
                 },

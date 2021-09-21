@@ -12,6 +12,7 @@ export const LoginScreen = ({navigation}) => {
     const { doLogin } = useContext(AuthenticationAnswer);
     const { errorMessage } = useContext(AuthenticationAnswer);
 
+
     return (
         <TouchableWithoutFeedback onPress={() =>{
             Keyboard.dismiss();
