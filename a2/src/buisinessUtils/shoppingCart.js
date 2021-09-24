@@ -1,6 +1,7 @@
 import React, {useState, createContext, useEffect} from 'react';
 import firestore from "@react-native-firebase/firestore";
 
+/*Stores the state of the shopping cart*/
 
 export const ShoppingAnswer = createContext({});
 

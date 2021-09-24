@@ -1,5 +1,5 @@
 import React, { useState, useContext } from 'react';
-import { RestaurantAnswer } from '../utils/restaurant';
+import { RestaurantAnswer } from '../dataUitls/restaurant';
 import { Button } from "react-native-elements";
 import {View, Text, TextInput, Image, Keyboard, TouchableWithoutFeedback} from "react-native";
 import { styles } from '../styles/styles';
@@ -7,12 +7,15 @@ import QRCodeScanner from "react-native-qrcode-scanner";
 import { RNCamera } from "react-native-camera";
 import { ButtonBar } from '../components/buttonGroup';
 
+/* Entry point for logged in user. Allows connection to restaurant */
+
 export const HomeScreen = ({navigation}) => {
 
     const { loadRestaurant } = useContext(RestaurantAnswer);
     const { getFoodMenu, getDrinksMenu } = useContext(RestaurantAnswer);
     const [ id, setId ] = useState(0);
 
+    //Pass QR code info to data layer
     const onSuccess = e => {
         const restCode = e.data.substring(e.data.length-3, e.data.length);
         loadRestaurant(restCode);

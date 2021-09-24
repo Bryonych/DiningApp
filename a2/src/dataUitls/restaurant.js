@@ -3,6 +3,8 @@ import firestore from '@react-native-firebase/firestore';
 import { useNavigation } from '@react-navigation/native';
 import { AppLoginStack } from '../navigation/LoginNavigation';
 
+/* Retrieves data from Firestore to keep the state of the restaurant */
+
 export const RestaurantAnswer = createContext({});
 
 export const RestaurantProvider = ({ children }) => {

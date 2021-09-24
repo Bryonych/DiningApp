@@ -8,6 +8,7 @@ import {colours} from "../styles/settings";
 import { HeaderImage } from '../styles/settings'
 import {Dimensions, Keyboard, TouchableWithoutFeedback} from "react-native";
 
+/* Controls navigation in the Login section */
 
 const LoginStack = createNativeStackNavigator();
 const deviceHeight = Dimensions.get('screen').height;

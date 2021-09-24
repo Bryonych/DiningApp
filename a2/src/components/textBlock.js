@@ -1,8 +1,9 @@
 import React, {useContext, useEffect} from "react";
-import {RestaurantAnswer} from "../utils/restaurant";
+import {RestaurantAnswer} from "../dataUitls/restaurant";
 import {Text, View} from "react-native";
 import {styles} from "../styles/styles";
 
+/* Blurb on restaurant home screen */
 
 export function Blurb() {
 

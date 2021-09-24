@@ -9,8 +9,10 @@ import { OrderDetailsScreen } from "../pages/orderDetails";
 import { OrderConfirmedScreen } from '../pages/orderConfirmed';
 import { HeaderTitle } from "../components/header";
 import { colours } from "../styles/settings";
-import { RestaurantProvider } from "../utils/restaurant";
-import { ShoppingProvider } from "../utils/shoppingCart";
+import { RestaurantProvider } from "../dataUitls/restaurant";
+import { ShoppingProvider } from "../buisinessUtils/shoppingCart";
+
+/* Controls navigation for the application section */
 
 const Stack = createNativeStackNavigator();
 

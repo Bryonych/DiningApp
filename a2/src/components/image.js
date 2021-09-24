@@ -1,9 +1,10 @@
 import React, {useContext, useEffect} from "react";
-import {RestaurantAnswer} from "../utils/restaurant";
+import {RestaurantAnswer} from "../dataUitls/restaurant";
 import {images} from "../styles/settings";
 import {Image, View} from "react-native";
 import {styles} from "../styles/styles";
 
+/*Images on restaurant home screen*/
 
 export function MainImage() {
 

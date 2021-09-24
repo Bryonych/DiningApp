@@ -6,7 +6,8 @@ import Modal from "react-native-modal";
 import {Button} from "react-native-elements";
 import {Dropdown, MultiSelect} from 'react-native-element-dropdown';
 
-
+/* Displays a menu item on the screen. Sends purchase information back to MenuScreen parent to be passed
+to business layer */
 
 export function MenuItem ({item, key, parentCallback}) {
 

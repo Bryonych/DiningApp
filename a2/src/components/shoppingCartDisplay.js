@@ -1,10 +1,12 @@
 import React, {useState, createContext, useEffect, useContext, useRef} from 'react';
-import {ShoppingAnswer} from "../utils/shoppingCart";
+import {ShoppingAnswer} from "../buisinessUtils/shoppingCart";
 import { View, Image, Text } from "react-native";
 import {styles} from "../styles/styles";
 import {Button} from "react-native-elements";
 import { AppLoginStack } from '../navigation/LoginNavigation';
 import {useNavigation} from "@react-navigation/native";
+
+/* Displays the shopping cart on the screen. */
 
 export function ShoppingCart () {
     const { items }  = useContext(ShoppingAnswer);
@@ -13,6 +15,7 @@ export function ShoppingCart () {
 
     const navigation = useNavigation();
 
+    //Retrieve information from the buisiness layer about the state of the shopping cart
     useEffect(() => {
         setNumber(items.length);
     }, [items]);

@@ -2,9 +2,11 @@ import React, { useState, useContext, useEffect } from 'react';
 import { NavigationContainer } from '@react-navigation/native';
 import { AppStack } from './AppNavigation';
 import { AppLoginStack } from './LoginNavigation';
-import { AuthenticationAnswer } from '../utils/authentication';
+import { AuthenticationAnswer } from '../dataUitls/authentication';
 import auth from '@react-native-firebase/auth';
 import { Alert } from "react-native";
+
+/* Entry point to navigation based on state of authentication in data layer */
 
 export const Navigation = () => {
 

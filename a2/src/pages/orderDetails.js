@@ -1,5 +1,5 @@
 import React, {useContext, useEffect, useCallback, useState} from "react";
-import {ShoppingAnswer} from "../utils/shoppingCart";
+import {ShoppingAnswer} from "../buisinessUtils/shoppingCart";
 import {styles} from "../styles/styles";
 import {View, Text, ScrollView, SafeAreaView, TouchableOpacity, TextInput} from "react-native";
 import CheckBox from "@react-native-community/checkbox";
@@ -10,12 +10,15 @@ import {useNavigation} from "@react-navigation/native";
 import Modal from "react-native-modal";
 
 
+ /*Displays the order details on the screen for confirmation or deselection of items*/
+
 export const OrderDetailsScreen = () => {
     const { items, removeItem, total } = useContext(ShoppingAnswer);
     const [ isModalVisible, setIsModalVisible ] = useState(false);
 
     const navigation = useNavigation();
 
+    //Retrieve the items and total for the shopping cart from the business layer
     let currentItems = {}
     useEffect(() => {
         currentItems = items;

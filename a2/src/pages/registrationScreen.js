@@ -1,10 +1,12 @@
 import React, { useState, useContext } from 'react';
-import { AuthenticationAnswer } from '../utils/authentication';
+import { AuthenticationAnswer } from '../dataUitls/authentication';
 import { Button, CheckBox } from "react-native-elements";
 import {TextInput, View, Text, Keyboard, TouchableWithoutFeedback} from "react-native";
 import { styles } from '../styles/styles';
 import { Formik } from 'formik';
 import * as yup from 'yup';
+
+/* Displays registration form on screen */
 
 const RegSchema = yup.object({
     name: yup.string().required(),

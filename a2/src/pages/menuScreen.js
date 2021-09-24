@@ -1,19 +1,21 @@
 import * as React from "react";
 import { useContext, useEffect, useCallback } from "react";
-import {RestaurantAnswer} from "../utils/restaurant";
+import {RestaurantAnswer} from "../dataUitls/restaurant";
 import {ButtonBar} from "../components/buttonGroup";
 import {styles} from "../styles/styles";
 import {MenuItem} from "../components/menuItem";
 import {ScrollView, SafeAreaView, View} from "react-native";
-import {ShoppingAnswer} from "../utils/shoppingCart";
+import {ShoppingAnswer} from "../buisinessUtils/shoppingCart";
 import { ShoppingCart } from "../components/shoppingCartDisplay";
 
+/* Displays menu items and shopping cart on the screen */
 
 export const MenuScreen = ({route, navigation}) => {
     const { foodMenu, drinksMenu } = useContext(RestaurantAnswer);
     const { type } = route.params;
     const { addItem } = useContext(ShoppingAnswer);
 
+    //retrieve menu from data layer
     let currentMenu = []
     useEffect(() => {
         currentMenu = foodMenu;
@@ -24,8 +26,9 @@ export const MenuScreen = ({route, navigation}) => {
         addItem(item, quantity);
     };
 
-
+    //Display food or drink menu
     if (type == 'food') {
+        console.disableYellowBox = true;
         return (
             <View style={styles.container}>
                 <View style={styles.menuContainer}>
@@ -47,6 +50,7 @@ export const MenuScreen = ({route, navigation}) => {
         )
     }
     else {
+        console.disableYellowBox = true;
         return (
             <View style={styles.container}>
                 <View style={styles.menuContainer}>

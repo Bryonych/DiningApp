@@ -1,6 +1,8 @@
 import React, { useState, createContext } from 'react';
 import auth from '@react-native-firebase/auth';
 
+/* Communicates with Firebase to perform login, registration and logout */
+
 export const AuthenticationAnswer = createContext({});
 
 export const AuthenticationProvider = ({ children }) => {

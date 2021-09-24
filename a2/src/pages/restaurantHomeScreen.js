@@ -4,13 +4,15 @@ import {Button} from "react-native-elements";
 import {styles} from "../styles/styles";
 import React, {useContext, useEffect, useState} from "react";
 import {ButtonBar} from "../components/buttonGroup";
-import {RestaurantAnswer} from "../utils/restaurant";
+import {RestaurantAnswer} from "../dataUitls/restaurant";
 import Modal from "react-native-modal";
 import _ from 'lodash';
 import { MainImage } from "../components/image";
 import { Blurb } from "../components/textBlock";
 import { ShoppingCart } from "../components/shoppingCartDisplay";
 import { colours } from '../styles/settings';
+
+/* Displays the restaurant home screen based on state of restaurant in data layer */
 
 export const RestaurantHomeScreen = ({navigation}) => {
 

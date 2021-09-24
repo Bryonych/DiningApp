@@ -1,8 +1,10 @@
 import { ButtonGroup, Button } from "react-native-elements";
 import {styles} from "../styles/styles";
 import React, { useState, useContext } from 'react';
-import { AuthenticationAnswer } from '../utils/authentication';
+import { AuthenticationAnswer } from '../dataUitls/authentication';
 import { useNavigation } from '@react-navigation/native';
+
+/* Button group along the bottom of the screens*/
 
 export const ButtonBar = () => {
     const { doLogout } = useContext(AuthenticationAnswer);

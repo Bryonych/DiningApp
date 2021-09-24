@@ -5,6 +5,7 @@ import {View, Text} from 'react-native';
 import {useNavigation} from "@react-navigation/native";
 import {colours} from '../styles/settings';
 
+/* Displays confirmation of order message */
 
 export const OrderConfirmedScreen = () => {
 

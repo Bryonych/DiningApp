@@ -1,10 +1,11 @@
 import React, { useState, useContext } from 'react';
-import { AuthenticationAnswer, errorMessage } from '../utils/authentication';
+import { AuthenticationAnswer, errorMessage } from '../dataUitls/authentication';
 import { Button } from "react-native-elements";
 import {View, Text, TextInput, Image, Keyboard, TouchableWithoutFeedback, Alert} from "react-native";
 import { styles } from '../styles/styles';
 import { AppLoginStack } from '../navigation/LoginNavigation';
 
+/* Entry point for non-logged in user. Collects login information for data layer */
 
 export const LoginScreen = ({navigation}) => {
     const [email, setEmail] = useState('');
